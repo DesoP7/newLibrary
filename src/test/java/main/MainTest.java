@@ -11,10 +11,10 @@ import org.junit.jupiter.api.Test;
 class MainTest {
   @Test
   void testCanSuccesfullyAddBook() {
-    Book book = new Book(1, "test", "isbn", "jake", LocalDate.of(2025, 1,21), 200, new Author("test", LocalDate.of(1988,2,12)));
+    Book book = new Book("test", "test", "isbn", "jake", LocalDate.of(2025, 1,21), 200, new Author("test","tesst", LocalDate.of(1988,2,12)));
     BookRepository bookRepository = new BookRepository();
-    long id = bookRepository.add(book);
+    int id = bookRepository.add(book);
 
-    assertNotNull(bookRepository.get(id));
+    assertNotNull(bookRepository.get((int) id));
   }
 }

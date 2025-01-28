@@ -5,90 +5,52 @@ import java.time.LocalDate;
 /**
  * Represents a book in the library system.
  */
-public record Book(int id, String title, String isbn, String publisher, LocalDate publicationDate,
-                   int pages, Author author) {
+public class Book {
+  private final int id;
+  private final String title;
+  private final Author author;
+  private final String isbn;
+  private final String publisher;
+  private final LocalDate publicationDate;
+  private final int pages;
+  private static int count = 0;
 
-  /**
-   * Constructor for the Book class.
-   *
-   * @param title           The title of the book.
-   * @param isbn            The ISBN of the book.
-   * @param publisher       The publisher of the book.
-   * @param publicationDate The publication date of the book.
-   * @param pages           The number of pages in the book.
-   * @param author          The author of the book.
-   */
-  public Book {
-
+  public Book(String title, Author author, String isbn, String publisher, LocalDate publicationDate, int pages) {
+    this.id = ++count;
+    this.title = title;
+    this.author = author;
+    this.isbn = isbn;
+    this.publisher = publisher;
+    this.publicationDate = publicationDate;
+    this.pages = pages;
   }
 
-  /**
-   * Gets the book's ID.
-   *
-   * @return The book's unique ID.
-   */
-  @Override
-  public int id() {
+  // Getters
+  public int getId() {
     return id;
   }
 
-  /**
-   * Gets the book's title.
-   *
-   * @return The book's title.
-   */
-  @Override
-  public String title() {
+  public String getTitle() {
     return title;
   }
 
-  /**
-   * Gets the book's isbn.
-   *
-   * @return The book's isbn.
-   */
-  @Override
-  public String isbn() {
+  public Author getAuthor() {
+    return author;
+  }
+
+  public String getIsbn() {
     return isbn;
   }
 
-  /**
-   * Gets the book's publisher.
-   *
-   * @return The book's publisher.
-   */
-  @Override
-  public String publisher() {
+  public String getPublisher() {
     return publisher;
   }
 
-  /**
-   * Gets the book's publication date.
-   *
-   * @return The book's publication date.
-   */
-  @Override
-  public LocalDate publicationDate() {
+  public LocalDate getPublicationDate() {
     return publicationDate;
   }
 
-  /**
-   * Gets the book's pages.
-   *
-   * @return The book's pages.
-   */
-  @Override
-  public int pages() {
+  public int getPages() {
     return pages;
-  }
-
-  /**
-   * Gets the book's author.
-   *
-   * @return The book's author.
-   */
-  @Override
-  public Author author() {
-    return author;
   }
 }
