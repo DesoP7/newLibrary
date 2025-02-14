@@ -8,8 +8,12 @@ import java.util.Scanner;
  */
 public class BookController {
   private final BookRepository bookRepository = new BookRepository();
-  private final AuthorRepository authorRepository = new AuthorRepository();
+  private final AuthorRepository authorRepository;
   private final Scanner scanner = new Scanner(System.in);
+
+  public BookController(AuthorRepository authorRepository) {
+    this.authorRepository = authorRepository;
+  }
 
   public void handleAddBook() {
     System.out.print("Enter book title: ");

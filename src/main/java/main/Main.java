@@ -1,18 +1,20 @@
 package main;
 
+import books.AuthorRepository;
 import books.BookController;
 import books.AuthorController;
 
 import java.util.Scanner;
 
 /**
- * Main class to start the application with a menu system.
+ * Main class to start the application.
  */
 public class Main {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    BookController bookController = new BookController();
-    AuthorController authorController = new AuthorController();
+    AuthorRepository authorRepository = new AuthorRepository();
+    BookController bookController = new BookController(authorRepository);
+    AuthorController authorController = new AuthorController(authorRepository);
 
     while (true) {
       System.out.println("\n--- Library System Menu ---");

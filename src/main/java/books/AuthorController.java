@@ -7,8 +7,12 @@ import java.util.Scanner;
  * Controller for managing authors.
  */
 public class AuthorController {
-  private final AuthorRepository authorRepository = new AuthorRepository();
+  private final AuthorRepository authorRepository;
   private final Scanner scanner = new Scanner(System.in);
+
+  public AuthorController(AuthorRepository authorRepository) {
+    this.authorRepository = authorRepository;
+  }
 
   public void handleAddAuthor() {
     System.out.print("Enter first name: ");
